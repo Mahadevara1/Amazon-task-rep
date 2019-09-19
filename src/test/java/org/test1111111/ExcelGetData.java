@@ -10,12 +10,16 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.ScreenOrientation;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -76,15 +80,27 @@ public class ExcelGetData {
 			}
 				
 		}
+		 return name;
+	}
 		
-               return name;
+		 public static void screen(String path) throws IOException {
+			 TakesScreenshot tk = (TakesScreenshot)driver;
+			 File s = tk.getScreenshotAs(OutputType.FILE);
+			 File f= new File(path);
+			 FileUtils.copyFile(s,f);
+			 
+			   
+			  }
+		
+               
+               
 		
 		
 		
 		
 		
 	}
-	}
+	
 
 	
 	
